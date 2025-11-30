@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Code, Mail, Gift, MapPin, GraduationCap, Languages } from "lucide-react";
-import profileImage from "@/assets/profile-image.png";
+import aboutMe from "@/assets/about-me.png";
 
 const AboutSection = () => {
   return (
@@ -29,7 +29,7 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               className="section-transition"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-xl bg-foreground/5 p-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl bg-foreground/5 p-0.5">
                 <div className="absolute top-0 left-0 w-full h-full bg-accent/5 rounded-xl transform rotate-3"></div>
                 <motion.div 
                   className="relative z-10 bg-background border-4 border-foreground/10 rounded-2xl overflow-hidden shadow-lg p-2"
@@ -37,7 +37,7 @@ const AboutSection = () => {
                   transition={{ duration: 0.5 }}
                 >
                   <img 
-                    src={profileImage}
+                    src={aboutMe}
                     alt="Amir Masnavi" 
                     className="w-full h-full object-cover rounded-lg" 
                   />
@@ -116,9 +116,7 @@ const AboutSection = () => {
                     </div>
                     <div>
                       <p className="text-foreground/80 mb-1">
-                        Besides coding, I'm passionate about exploring new technologies and learning new 
-                        programming languages. I also managed <span className="font-medium text-foreground">social media accounts</span> and developed 
-                        strong <span className="font-medium text-foreground">video and photo editing skills</span> during my time as a Marketing Manager.
+                        Beyond coding, I apply my engineering mindset to real-world problems. At <span className="font-medium text-foreground">ESN Porto</span>, I optimize workflows using automation tools and organize large-scale events, combining technical skills with leadership.
                       </p>
                     </div>
                   </div>

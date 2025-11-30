@@ -88,7 +88,7 @@ const HeroSection = () => {
               ref={textRef}
               className="text-xl md:text-2xl text-foreground/80 mb-8"
             >
-              Adaptable developer with a passion for technology
+              Building cool stuff with code & logic every day...
             </div>
             
             <motion.p 
@@ -98,8 +98,8 @@ const HeroSection = () => {
               animate="visible"
               className="text-foreground/70 mb-8 max-w-lg"
             >
-              An enthusiastic and adaptable individual with a strong background in mathematics 
-              and a passion for technology. Currently studying Computer Engineering in Portugal.
+Software Engineering student focused on <b>Backend Systems</b> and <b>DevOps</b>.
+  Bridging the gap between abstract mathematics and robust software architecture.
             </motion.p>
             
             <motion.div 

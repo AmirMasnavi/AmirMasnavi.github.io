@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
-import { BookOpen, GraduationCap, Calendar, MapPin, Star, ArrowRight } from "lucide-react";
+import { BookOpen, GraduationCap, Calendar, MapPin, Star, Code, Server, Database, Terminal } from "lucide-react";
 
 const education = [
   {
     id: 1,
-    period: "Sep 2022 – Sep 2026",
+    period: "Sep 2022 – Present",
     institution: "Instituto Superior de Engenharia do Porto (ISEP)",
-    degree: "BSc in Computer Engineering",
+    degree: "BSc in Informatics Engineering",
     location: "Porto, Portugal",
     current: true,
     highlights: [
-      "Focus on software development and engineering principles",
-      "Practical application of programming concepts",
-      "Database management and system architecture"
+      "Specializing in Software Architecture and Distributed Systems.",
+      "Hands-on experience with agile methodologies (Scrum) and complex system modeling.",
+      "Database management (Oracle/SQL) and Algorithm efficiency."
     ]
   },
   {
@@ -23,37 +23,39 @@ const education = [
     location: "Tehran, Iran",
     current: false,
     highlights: [
-      "Strong foundation in mathematical principles",
-      "Analytical thinking and problem-solving skills",
-      "Completed first year before migrating to Portugal"
+      "Rigorous coursework in Calculus, Linear Algebra, and Logic.",
+      "Developed strong analytical mindset applied to algorithmic problem solving.",
+      "Completed first year with distinction before relocating to Portugal."
     ]
   }
+];
+
+const topSkills = [
+  { id: 1, symbol: "J", name: "Java (DDD)", sub: "Backend Architecture", color: "text-accent" },
+  { id: 2, symbol: "C#", name: "C# / .NET", sub: "Enterprise Systems", color: "text-blue-400" },
+  { id: 3, symbol: "DO", name: "DevOps", sub: "Docker & CI/CD", color: "text-green-400" },
+  { id: 4, symbol: "DB", name: "SQL", sub: "Oracle & MySQL", color: "text-purple-400" },
+];
+
+const otherSkills = [
+  "Git & GitHub", "Linux/Bash", "REST APIs", "Unit Testing", 
+  "System Design", "C/C++", "React/Next.js"
 ];
 
 // Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 }
-  }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
 const EducationSection = () => {
   return (
     <section id="education" className="py-20 bg-muted/50 relative overflow-hidden">
-      {/* Background pattern */}
       <div className="absolute inset-0 notebook-paper opacity-50 pointer-events-none"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -65,16 +67,12 @@ const EducationSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="handwritten text-3xl text-primary mb-2">Education</h2>
+            <h2 className="handwritten text-3xl text-primary mb-2">Education & Skills</h2>
             <div className="w-24 h-1 bg-accent/30 mx-auto mb-4"></div>
-            <p className="text-foreground/70 max-w-3xl mx-auto">
-              My academic journey spans across countries, building a strong foundation in
-              both mathematics and computer engineering.
-            </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Academic Timeline */}
+            {/* Left Column: Education */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -98,16 +96,13 @@ const EducationSection = () => {
                 className="space-y-6"
               >
                 {education.map((edu) => (
-                  <motion.div
-                    key={edu.id}
-                    variants={itemVariants}
-                    className="relative"
-                  >
+                  <motion.div key={edu.id} variants={itemVariants} className="relative">
                     <div className="notebook-paper paper-fold rounded-lg p-6 shadow-md hover-lift">
                       <div className="flex flex-wrap justify-between items-start mb-4">
                         <h4 className="marker-text text-xl text-primary">{edu.degree}</h4>
                         {edu.current && (
-                          <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                          // CSS FIX: Added 'mr-12' to prevent overlap with the folded corner
+                          <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium mr-12">
                             Current
                           </span>
                         )}
@@ -118,7 +113,6 @@ const EducationSection = () => {
                           <BookOpen className="h-4 w-4 text-accent mr-2" />
                           <span className="font-medium">{edu.institution}</span>
                         </div>
-                        
                         <div className="flex flex-wrap gap-4 text-foreground/70 text-sm">
                           <div className="flex items-center">
                             <Calendar className="h-4 w-4 mr-1" />
@@ -151,7 +145,7 @@ const EducationSection = () => {
               </motion.div>
             </motion.div>
             
-            {/* Skills and Languages */}
+            {/* Right Column: Skills & Languages */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -161,14 +155,13 @@ const EducationSection = () => {
             >
               <div className="flex items-center mb-6">
                 <div className="p-2 bg-accent/10 rounded-full mr-3">
-                  <BookOpen className="h-6 w-6 text-accent" />
+                  <Terminal className="h-6 w-6 text-accent" />
                 </div>
                 <h3 className="marker-text text-2xl text-primary chalk-underline inline-block">
                   Skills & Languages
                 </h3>
               </div>
               
-              {/* Top Skills */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -179,109 +172,40 @@ const EducationSection = () => {
                 <h4 className="marker-text text-lg text-primary mb-4">Top Skills</h4>
                 
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <div className="bg-background border border-border rounded-lg p-3 flex flex-col items-center text-center hover-lift">
-                    <div className="bg-accent/10 p-2 rounded-full mb-2">
-                      <div className="h-8 w-8 flex items-center justify-center text-accent font-bold">J</div>
+                  {topSkills.map((skill) => (
+                    <div key={skill.id} className="bg-background border border-border rounded-lg p-3 flex flex-col items-center text-center hover-lift">
+                      <div className="bg-accent/10 p-2 rounded-full mb-2">
+                        <div className={`h-8 w-8 flex items-center justify-center font-bold ${skill.color}`}>{skill.symbol}</div>
+                      </div>
+                      <span className="text-foreground font-medium">{skill.name}</span>
+                      <span className="text-foreground/60 text-xs">{skill.sub}</span>
                     </div>
-                    <span className="text-foreground font-medium">Java/JavaScript</span>
-                    <span className="text-foreground/60 text-xs">Backend & Frontend</span>
-                  </div>
-                  
-                  <div className="bg-background border border-border rounded-lg p-3 flex flex-col items-center text-center hover-lift">
-                    <div className="bg-accent/10 p-2 rounded-full mb-2">
-                      <div className="h-8 w-8 flex items-center justify-center text-accent font-bold">PS</div>
-                    </div>
-                    <span className="text-foreground font-medium">Problem Solving</span>
-                    <span className="text-foreground/60 text-xs">Algorithms & Logic</span>
-                  </div>
-                  
-                  <div className="bg-background border border-border rounded-lg p-3 flex flex-col items-center text-center hover-lift">
-                    <div className="bg-accent/10 p-2 rounded-full mb-2">
-                      <div className="h-8 w-8 flex items-center justify-center text-accent font-bold">PY</div>
-                    </div>
-                    <span className="text-foreground font-medium">Python</span>
-                    <span className="text-foreground/60 text-xs">Scripting & Automation</span>
-                  </div>
-                  
-                  <div className="bg-background border border-border rounded-lg p-3 flex flex-col items-center text-center hover-lift">
-                    <div className="bg-accent/10 p-2 rounded-full mb-2">
-                      <div className="h-8 w-8 flex items-center justify-center text-accent font-bold">DB</div>
-                    </div>
-                    <span className="text-foreground font-medium">Database</span>
-                    <span className="text-foreground/60 text-xs">Oracle & SQL</span>
-                  </div>
+                  ))}
                 </div>
                 
                 <h5 className="text-foreground font-medium mb-2">Other Skills</h5>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    Git & GitHub
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    Creative Design
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    Team Communication
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    Bash
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    Artificial Intelligence
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    C/C++
-                  </span>
-                  <span className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
-                    HTML/CSS
-                  </span>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {otherSkills.map((skill, index) => (
+                    <span key={index} className="bg-background text-foreground/80 text-xs px-3 py-1 rounded-full border border-border">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-              
-              {/* Languages */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="notebook-paper paper-fold rounded-lg p-6 shadow-md"
-              >
-                <h4 className="marker-text text-lg text-primary mb-4">Languages</h4>
-                
-                <div className="space-y-4">
+
+                <h4 className="marker-text text-lg text-primary mb-4 pt-4 border-t border-dashed border-border">Languages</h4>
+                <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-accent rounded-full mr-3"></div>
-                      <span className="text-foreground font-medium">Farsi (Persian)</span>
-                    </div>
-                    <span className="text-foreground/70 text-sm">Native</span>
+                    <span className="text-foreground font-medium">Farsi (Persian)</span>
+                    <span className="text-foreground/70 text-sm bg-accent/5 px-2 py-0.5 rounded">Native</span>
                   </div>
-                  
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-accent rounded-full mr-3"></div>
-                      <span className="text-foreground font-medium">English</span>
-                    </div>
-                    <span className="text-foreground/70 text-sm">Fluent</span>
+                    <span className="text-foreground font-medium">English</span>
+                    <span className="text-foreground/70 text-sm bg-accent/5 px-2 py-0.5 rounded">Fluent</span>
                   </div>
-                  
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-accent rounded-full mr-3"></div>
-                      <span className="text-foreground font-medium">Portuguese</span>
-                    </div>
-                    <span className="text-foreground/70 text-sm">Conversational</span>
+                    <span className="text-foreground font-medium">Portuguese</span>
+                    <span className="text-foreground/70 text-sm bg-accent/5 px-2 py-0.5 rounded">Conversational</span>
                   </div>
-                </div>
-                
-                <div className="mt-6 text-center">
-                  <a 
-                    href="#contact" 
-                    className="inline-flex items-center text-accent hover:text-accent/80 font-medium transition"
-                  >
-                    <span>Let's connect!</span>
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </a>
                 </div>
               </motion.div>
             </motion.div>

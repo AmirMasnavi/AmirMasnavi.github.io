@@ -1,51 +1,51 @@
 import { motion } from "framer-motion";
 import { 
-  Code, Server, Github, Shield, Layout, Beaker, 
+  Code, Server, Github, Shield, Layout, Database, 
   Users, Zap, FileText, MessageSquare, 
-  Lightbulb, Puzzle, PenTool, Camera, Paintbrush
+  Flag, Puzzle, PenTool, Box, Cpu, FileCode
 } from "lucide-react";
 
 const technicalSkills = [
-  { id: 1, name: "Java", icon: <Code className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 2, name: "Maven", icon: <Server className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 3, name: "GitHub", icon: <Github className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 1, name: "Java (DDD)", icon: <Code className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 2, name: "C# / .NET", icon: <Server className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 3, name: "Docker", icon: <Box className="h-8 w-8 mx-auto text-accent" /> },
   { id: 4, name: "CI/CD", icon: <Shield className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 5, name: "DDD", icon: <Layout className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 6, name: "Photo Editing", icon: <Paintbrush className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 7, name: "Video Editing", icon: <Camera className="h-8 w-8 mx-auto text-accent" /> },
-  { id: 8, name: "Database", icon: <Server className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 5, name: "SQL / Oracle", icon: <Database className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 6, name: "React / Next.js", icon: <Layout className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 7, name: "Systems (C)", icon: <Cpu className="h-8 w-8 mx-auto text-accent" /> },
+  { id: 8, name: "TypeScript", icon: <FileCode className="h-8 w-8 mx-auto text-accent" /> },
 ];
 
 const softSkills = [
   { 
     id: 1, 
     name: "Teamwork", 
-    description: "Collaborative problem-solving and effective communication",
+    description: "Collaborative problem-solving in multicultural environments",
     icon: <Users className="h-6 w-6 text-accent" />,
   },
   { 
     id: 2, 
     name: "Adaptability", 
-    description: "Quick to learn and adjust to changing environments",
+    description: "Quick to learn and adjust to changing tech stacks",
     icon: <Zap className="h-6 w-6 text-accent" />,
   },
   { 
     id: 3, 
     name: "Documentation", 
-    description: "Clear technical writing and project documentation",
+    description: "Clear technical writing and architectural documentation",
     icon: <FileText className="h-6 w-6 text-accent" />,
   },
   { 
     id: 4, 
-    name: "Communication", 
-    description: "Effective cross-cultural and multilingual communication",
+    name: "Negotiation", 
+    description: "Securing partnerships and managing stakeholder expectations",
     icon: <MessageSquare className="h-6 w-6 text-accent" />,
   },
   { 
     id: 5, 
-    name: "Creativity", 
-    description: "Innovative approach to problem-solving and design",
-    icon: <Lightbulb className="h-6 w-6 text-accent" />,
+    name: "Leadership", 
+    description: "Organizing large-scale events and coordinating teams",
+    icon: <Flag className="h-6 w-6 text-accent" />,
   },
   { 
     id: 6, 

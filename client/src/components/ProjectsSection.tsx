@@ -1,33 +1,48 @@
 import { motion } from "framer-motion";
-import { Shield, Globe, Video, ArrowRight, ExternalLink, Code, Layers, Database } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Code,
+  Layers,
+  Database,
+  Ship,
+  Factory,
+  ShoppingBag,
+  Lock, // New Icons imported here
+} from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Shodrone Project",
-    tags: ["Java", "DDD", "CI/CD"],
-    description: "A comprehensive catalog management and drone simulation system built using Domain-Driven Design principles and CI/CD practices.",
-    icon: <Shield className="h-8 w-8 text-accent" />,
-    linkText: "View on GitHub",
-    linkUrl: "https://github.com/Departamento-de-Engenharia-Informatica/sem4pi-2024-2025-sem4pi_2024_2025_g68",
+    title: "Port Logistics System",
+    tags: ["C# .NET", "React", "Next.js", "Three.js", "Genetic Alg"],
+    description:
+      "A full-stack logistics platform featuring a C# backend for operations management and a Next.js/Three.js frontend for dashboard and real-time 3D port visualization.",
+    icon: <Ship className="h-8 w-8 text-accent" />, // Specific Icon
+    linkText: "View Architecture",
+    // Ensure you created this Ghost Repo on GitHub, even if empty!
+    linkUrl: "",
+    isPrivate: true,
   },
   {
     id: 2,
-    title: "RCOMP Network Simulation",
-    tags: ["Cisco", "OSPF", "DHCP"],
-    description: "A comprehensive network simulation using Cisco Packet Tracer that implements OSPF routing, DHCP, DNS services, and Access Control Lists.",
-    icon: <Globe className="h-8 w-8 text-accent" />,
+    title: "Industrial Simulator",
+    tags: ["Java", "Oracle SQL", "PL/SQL", "C"],
+    description:
+      "A production line simulator that optimizes machine scheduling. Features a Java simulation engine, Oracle database, and C modules for sensor integration.",
+    icon: <Factory className="h-8 w-8 text-accent" />, // Specific Icon
     linkText: "View on GitHub",
-    linkUrl: "https://bitbucket.org/rcomp-24-25-2dn/rcomp-24-25-2dn-e-g3/src/master/",
+    linkUrl: "https://github.com/AmirMasnavi/Industrial-Production-Simulator",
   },
   {
     id: 3,
-    title: "portfolio Website",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-    description: "A personal portfolio website showcasing my projects and skills, built with React, Tailwind CSS, and Framer Motion for animations.",
-    icon: <Code className="h-8 w-8 text-accent" />,
-    linkText: "View Project",
-    linkUrl: "https://github.com/arianmv/portfolio",
+    title: "Skateboard E-Commerce",
+    tags: ["React", "TypeScript", "Tailwind", "Vite"],
+    description:
+      "A modern, type-safe e-commerce application. Focuses on component-based architecture, responsive UI/UX design, and shopping cart state management.",
+    icon: <ShoppingBag className="h-8 w-8 text-accent" />, // Specific Icon
+    linkText: "View Live Demo",
+    linkUrl: "https://github.com/AmirMasnavi/skateboard",
   },
 ];
 
@@ -37,9 +52,9 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const itemVariants = {
@@ -47,11 +62,17 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 }
-  }
+    transition: { duration: 0.5 },
+  },
 };
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+}) => {
   return (
     <motion.div
       variants={itemVariants}
@@ -60,11 +81,13 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="marker-text text-xl text-primary mb-2">{project.title}</h3>
+            <h3 className="marker-text text-xl text-primary mb-2">
+              {project.title}
+            </h3>
             <div className="flex flex-wrap gap-2 mb-3">
               {project.tags.map((tag, index) => (
-                <span 
-                  key={index} 
+                <span
+                  key={index}
                   className="px-2 py-1 text-xs bg-accent/10 text-foreground/90 rounded-md border border-border"
                 >
                   {tag}
@@ -72,29 +95,36 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               ))}
             </div>
           </div>
-          <div className="p-2 bg-accent/10 rounded-full">
-            {project.icon}
-          </div>
+          <div className="p-2 bg-accent/10 rounded-full">{project.icon}</div>
         </div>
-        
-        <p className="text-foreground/70 mb-4">
-          {project.description}
-        </p>
-        
+
+        <p className="text-foreground/70 mb-4">{project.description}</p>
+
         <div className="flex justify-between items-center">
-          <a 
-            href={project.linkUrl} 
-            className="text-accent hover:text-accent/80 font-medium flex items-center transition"
-          >
-            <span>{project.linkText}</span>
-            <ExternalLink className="h-4 w-4 ml-1" />
-          </a>
+          {project.linkUrl ? (
+            <a
+              href={project.linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 font-medium flex items-center transition"
+            >
+              <span>{project.linkText}</span>
+              <ExternalLink className="h-4 w-4 ml-1" />
+            </a>
+          ) : (
+            <span className="text-foreground/50 font-medium flex items-center cursor-not-allowed">
+              <span>{project.linkText}</span>
+              <Lock className="h-4 w-4 ml-1" />
+            </span>
+          )}
         </div>
       </div>
-      
+
       {/* Corner fold with number */}
       <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-transparent via-transparent to-accent/10 flex items-end justify-end p-1">
-        <span className="handwritten text-foreground/60 text-sm">{index + 1}</span>
+        <span className="handwritten text-foreground/60 text-sm">
+          {index + 1}
+        </span>
       </div>
     </motion.div>
   );
@@ -109,10 +139,13 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-muted/50 relative overflow-hidden">
+    <section
+      id="projects"
+      className="py-20 bg-muted/50 relative overflow-hidden"
+    >
       {/* Background pattern */}
       <div className="absolute inset-0 notebook-paper opacity-50 pointer-events-none"></div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -122,10 +155,12 @@ const ProjectsSection = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-6"
           >
-            <h2 className="handwritten text-3xl text-primary mb-2">My Projects</h2>
+            <h2 className="handwritten text-3xl text-primary mb-2">
+              My Projects
+            </h2>
             <div className="w-24 h-1 bg-accent/30 mx-auto mb-4"></div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -142,7 +177,7 @@ const ProjectsSection = () => {
               </div>
             ))}
           </motion.div>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -150,10 +185,11 @@ const ProjectsSection = () => {
             transition={{ duration: 0.6 }}
             className="text-foreground/80 text-center mb-12 max-w-3xl mx-auto"
           >
-            Here are some of the projects I've worked on that showcase my skills and interests.
-            Each project represents a different aspect of my technical capabilities.
+            Here are some of the projects I've worked on that showcase my skills
+            and interests. Each project represents a different aspect of my
+            technical capabilities.
           </motion.p>
-          
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -165,7 +201,7 @@ const ProjectsSection = () => {
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -173,10 +209,10 @@ const ProjectsSection = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mt-12 text-center"
           >
-            <a 
-              href="https://github.com/arianmv" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://github.com/AmirMasnavi"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-background border border-border hover:border-accent text-foreground hover:text-accent font-medium rounded-md transition shadow-sm"
             >
               <span>View More on GitHub</span>
