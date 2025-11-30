@@ -90,7 +90,7 @@ import { fileURLToPath } from "url";
 var __filename = fileURLToPath(import.meta.url);
 var __dirname = path.dirname(__filename);
 var vite_config_default = defineConfig({
-  // base: '/portfolio/',
+  base: "/",
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -108,6 +108,7 @@ var vite_config_default = defineConfig({
     }
   },
   root: path.resolve(__dirname, "client"),
+  publicDir: path.resolve(__dirname, "client", "public"),
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true
@@ -224,11 +225,7 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
   const port = 3003;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true
-  }, () => {
+  server.listen(port, "0.0.0.0", () => {
     log(`serving on port ${port}`);
   });
 })();
