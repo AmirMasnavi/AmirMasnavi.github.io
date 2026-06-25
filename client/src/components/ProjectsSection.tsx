@@ -8,41 +8,73 @@ import {
   Ship,
   Factory,
   ShoppingBag,
+  Server,
+  Cpu,
+  BarChart3,
   Lock, // New Icons imported here
 } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "Port Logistics System",
-    tags: ["C# .NET", "React", "Next.js", "Three.js", "Genetic Alg"],
+    title: "Shodrone — Drone Show Back-Office",
+    tags: ["Java 17", "Maven", "DDD", "ANTLR DSL", "JPA/Hibernate", "CI/CD"],
     description:
-      "A full-stack logistics platform featuring a C# backend for operations management and a Next.js/Three.js frontend for dashboard and real-time 3D port visualization.",
-    icon: <Ship className="h-8 w-8 text-accent" />, // Specific Icon
+      "A back-office system for customized drone shows. A multi-module Java platform built with Domain-Driven Design, custom ANTLR-based DSLs for describing shows, JPA/Hibernate persistence, authentication, and a JUnit/Mockito test suite.",
+    icon: <Server className="h-8 w-8 text-accent" />,
     linkText: "View Architecture",
-    // Ensure you created this Ghost Repo on GitHub, even if empty!
-    linkUrl: "",
-    isPrivate: true,
+    linkUrl: "https://github.com/AmirMasnavi/Shodrone",
   },
   {
     id: 2,
-    title: "Industrial Simulator",
-    tags: ["Java", "Oracle SQL", "PL/SQL", "C"],
+    title: "Port Logistics System",
+    tags: [".NET 9", "DDD", "EF Core", "CI/CD", "Prolog", "Microservices"],
     description:
-      "A production line simulator that optimizes machine scheduling. Features a Java simulation engine, Oracle database, and C modules for sensor integration.",
-    icon: <Factory className="h-8 w-8 text-accent" />, // Specific Icon
+      "A microservice-based port operations platform. A .NET 9 / ASP.NET Core REST API built with Domain-Driven Design and Entity Framework Core, a Node.js service, a Prolog genetic-algorithm scheduler, and GitHub Actions CI/CD (with a React/Three.js 3D frontend).",
+    icon: <Ship className="h-8 w-8 text-accent" />,
+    linkText: "View on GitHub",
+    linkUrl: "https://github.com/AmirMasnavi/Port-Logistics-Management-System",
+  },
+  {
+    id: 3,
+    title: "Industrial Simulator",
+    tags: ["Java", "Data Structures", "Oracle PL/SQL", "C"],
+    description:
+      "A job-shop production simulator that optimizes machine scheduling and detects bottlenecks. Built with a Java simulation engine (AVL/BST trees, priority queues), an Oracle PL/SQL database, and C modules for sensor integration.",
+    icon: <Factory className="h-8 w-8 text-accent" />,
     linkText: "View on GitHub",
     linkUrl: "https://github.com/AmirMasnavi/Industrial-Production-Simulator",
   },
   {
-    id: 3,
+    id: 4,
+    title: "Drone Fleet Simulation",
+    tags: ["C", "Concurrency", "POSIX", "Multithreading"],
+    description:
+      "A multi-process, multi-threaded drone simulator in C. Uses POSIX shared memory, semaphores, threads, and signals to keep a parent process and one child process per drone in lockstep, with between-step collision detection.",
+    icon: <Cpu className="h-8 w-8 text-accent" />,
+    linkText: "View on GitHub",
+    linkUrl: "https://github.com/AmirMasnavi/Drone_project",
+  },
+  {
+    id: 5,
+    title: "GridLightEV — Data Analysis",
+    tags: ["Python", "pandas", "statsmodels", "Plotly Dash"],
+    description:
+      "A data-science study on whether LED street-lighting upgrades free enough grid capacity for EV charging. Full pipeline: exploratory analysis, statistical inference, and regression modeling, with a bilingual Plotly Dash dashboard.",
+    icon: <BarChart3 className="h-8 w-8 text-accent" />,
+    linkText: "Available on request",
+    linkUrl: "",
+    isPrivate: true,
+  },
+  {
+    id: 6,
     title: "Skateboard E-Commerce",
     tags: ["React", "TypeScript", "Tailwind", "Vite"],
     description:
-      "A modern, type-safe e-commerce application. Focuses on component-based architecture, responsive UI/UX design, and shopping cart state management.",
-    icon: <ShoppingBag className="h-8 w-8 text-accent" />, // Specific Icon
+      "A modern, type-safe e-commerce frontend. Focuses on component-based architecture, responsive UI/UX, and cart state management.",
+    icon: <ShoppingBag className="h-8 w-8 text-accent" />,
     linkText: "View Live Demo",
-    linkUrl: "https://github.com/AmirMasnavi/skateboard",
+    linkUrl: "https://staymellow.netlify.app/",
   },
 ];
 

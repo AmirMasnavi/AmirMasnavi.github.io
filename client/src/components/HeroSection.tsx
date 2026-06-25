@@ -98,7 +98,7 @@ const HeroSection = () => {
               animate="visible"
               className="text-foreground/70 mb-8 max-w-lg"
             >
-Software Engineering student focused on <b>Backend Systems</b> and <b>DevOps</b>.
+Software Engineer focused on <b>Backend Systems</b> and <b>DevOps</b>.
   Bridging the gap between abstract mathematics and robust software architecture.
             </motion.p>
             

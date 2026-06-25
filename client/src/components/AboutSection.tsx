@@ -104,8 +104,9 @@ const AboutSection = () => {
                     </div>
                     <div>
                       <p className="text-foreground/80 mb-1">
-                        Currently studying <span className="font-medium text-foreground">Computer Engineering in Portugal</span>, I'm eager to leverage 
-                        my skills in programming and problem-solving through internship opportunities.
+                        Finishing my <span className="font-medium text-foreground">BSc in Computer Engineering at ISEP</span> (Porto). I recently completed a
+                        traineeship at <span className="font-medium text-foreground">Hitachi Solutions</span>, writing production code for Microsoft Dynamics 365.
+                        I'm now looking for full-time <span className="font-medium text-foreground">backend / DevOps</span> roles.
                       </p>
                     </div>
                   </div>
